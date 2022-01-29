@@ -1,0 +1,31 @@
+table {
+  width: 100%;
+}
+
+/* filter controls */
+.search-div {
+  margin-left: 10px;
+}
+.search-form-field {
+  width: 15%;
+  margin-left: 10px;
+}
+.search-form-field div.mat-form-field-underline {
+  display: none;
+}
+.search-form-field div.mat-form-field-infix {
+  border-top: 0px;
+}
+.search-form-field div.mat-form-field-wrapper {
+  padding-bottom: 0px;
+}
+.search-form-field div.mat-form-field-suffix button {
+  height: 25px;
+  width: 25px;
+}
+.render-column {
+  display: none !important;
+}
+.first-column {
+  padding-left: 20px !important;
+}

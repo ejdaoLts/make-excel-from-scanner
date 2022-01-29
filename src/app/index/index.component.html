@@ -1,0 +1,124 @@
+<div class="content" style="padding: 20px;">
+    <div class="container-header">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="container-title">MakePdf</h1>
+            </div>
+        </div>
+    </div>
+    <input autofocus type="text" [(ngModel)]="value" (keyup)="changeWithSetTime()">
+    <button class="btn btn-outline-success" (click)="clearTable()" style="margin-left: 5px;">Limpiar Tabla</button><br><br>
+    <mat-divider></mat-divider>
+    <!-- start content -->
+
+    <div class="container" style="padding: 20px;">
+        <div class="search-div d-none d-lg-block" style="margin-bottom: -63px;">
+            <button (click)="generateExcel()" mat-raised-button>
+                <mat-icon>picture_as_pdf</mat-icon>
+            </button>
+            <mat-form-field class="search-form-field" style="width: 35%;" floatLabel="never">
+                <input type="text" matInput [(ngModel)]="searchKey" placeholder="Buscar" autocomplete="off" (keyup)="applyFilter()">
+                <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"
+                    (click)="onSearchClear()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <div class="search-div d-block d-lg-none">
+            <button (click)="generateExcel()" mat-raised-button>
+                <mat-icon>picture_as_pdf</mat-icon>
+            </button>
+            <mat-form-field class="search-form-field" style="width: 50%;" floatLabel="never">
+                <input type="text" matInput [(ngModel)]="searchKey" placeholder="Buscar" autocomplete="off" (keyup)="applyFilter()">
+                <a mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+                    <mat-icon>close</mat-icon>
+                </a>
+            </mat-form-field>
+        </div>
+        <mat-paginator [length]="dataSource.length" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons
+            aria-label="Select page">
+        </mat-paginator>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="id">
+                    <th class="render-column" mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
+                    <td class="render-column" mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="uno">
+                    <th class="first-column" mat-header-cell *matHeaderCellDef mat-sort-header> uno </th>
+                    <td class="first-column" mat-cell *matCellDef="let element"> {{element.uno}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="dos">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> dos </th>
+                    <td mat-cell *matCellDef="let element"> {{element.dos}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="tres">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> tres </th>
+                    <td mat-cell *matCellDef="let element"> {{element.tres}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="cuatro">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> cuatro </th>
+                    <td mat-cell *matCellDef="let element"> {{element.cuatro}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="cinco">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> cinco </th>
+                    <td mat-cell *matCellDef="let element"> {{element.cinco}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="seis">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> seis </th>
+                    <td mat-cell *matCellDef="let element"> {{element.seis}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="siete">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> siete </th>
+                    <td mat-cell *matCellDef="let element"> {{element.siete}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="ocho">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ocho </th>
+                    <td mat-cell *matCellDef="let element"> {{element.ocho}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="nueve">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> nueve </th>
+                    <td mat-cell *matCellDef="let element"> {{element.nueve}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="acciones">
+                    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                    <td mat-cell *matCellDef="let element"><button class="render-info" (click)="remove(element.id)" mat-icon-button><mat-icon>delete</mat-icon></button></td>
+
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- end content -->
+</div>

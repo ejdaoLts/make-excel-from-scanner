@@ -1,0 +1,55 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+.breadcrumb {
+  background: transparent;
+  text-transform: capitalize;
+}
+/*
+@import "src/assets/dashboard/styles/setTheme.scss";
+*/
+.dark-theme {
+  @import "src/assets/dashboard/styles/darkStyle.scss";
+  .message{
+    color: black !important;
+  }
+}
+
+.cool-theme {
+  @import "src/assets/dashboard/styles/coolStyle.scss";
+  .message{
+    color: white !important;
+  }
+}
+
+.container-title {
+  text-transform: capitalize;
+}
+
+.navbar-title {
+  color: white !important;
+}
+
+.content {
+  min-height: calc(100vh - 122px);
+}
+
+button:focus {
+  outline: none !important;
+}
+
+*::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: transparent;
+}
