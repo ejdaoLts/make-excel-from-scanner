@@ -1,167 +1,49 @@
 $my-primary-color: (
-  200: #dbdbdb,
-  500: #0aa1ae,
-  700: #0ffdfd,
+  200: #afb4ff,
+  500: #2600ff,
+  700: rgb(86, 89, 221),
   contrast: (
     200: #e9e9e9,
     500: #ffffff,
     700: #eeeeee,
   ),
 );
+
+$my-warn-color: (
+  200: #fccbcb,
+  500: #9c0d0d,
+  700: #db9e96,
+  contrast: (
+    200: #e9e9e9,
+    500: #ffffff,
+    700: #eeeeee,
+  ),
+);
+
 $dark-primary: mat-palette($my-primary-color);
 $dark-accent: mat-palette($mat-purple, A700);
-$dark-warn: mat-palette($mat-red, A400);
+$dark-warn: mat-palette($my-warn-color);
 $dark-default: mat-palette($mat-red, A400);
 
-$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+$dark-theme: mat-light-theme($dark-primary, $dark-accent, $dark-warn);
 
 @include angular-material-color($dark-theme);
 
 
-.mat-menu {
-  background: red !important;
+.content{
+  
+  background: linear-gradient(to right, #99968b, #9c998d);
+  //background: linear-gradient(to right, #b5d1b4, #e2d9bf);
 }
 
-
-.mat-menu-link{
-  color: white !important;
+.datatable{
+  background-color: #b8b5ae;
 }
 
-mat-sidenav {
-  background-image: url('https://i.gyazo.com/5cd99bef0690e691cff6550ba46ffaac.png');
-  background-size: cover;
-}
-/*
-mat-sidenav-content {
-  background: linear-gradient(120deg, rgb(26, 26, 26), #110006) !important;
-}
-*/
-.checkbox-rememberme{
-  background-color: #75cad1;
-  border-radius: 5px;
+.btn-icon, .container-title, .input-search{
+  color: rgb(37, 37, 37);
 }
 
-footer {
-  text-align: center !important;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  padding-top: 15px !important;
-  padding-bottom: 10px !important;
-  background: linear-gradient(120deg, black, #030001) !important;
-  color: white !important;
-}
-footer a {
-  color: rgb(172, 170, 170) !important;
-}
-
-mat-expansion-panel {
-  background: #1d0303 !important;
-  margin: 3px;
-  opacity: 0.7;
-}
-mat-expansion-panel:focus {
-  background: #cf1515 !important;
-  margin: 3px;
-  opacity: 0.7;
-}
-
-mat-expansion-panel mat-panel-title {
-  opacity: 1;
-}
-
-mat-toolbar {
-  background: linear-gradient(120deg, black, #030001) !important;
-}
-
-app-footer {
-  background: linear-gradient(120deg, black, #030001) !important;
-  height: 50px;
-}
-
-.mat-sidenav-content::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: rgb(53, 53, 53);
-  outline: 1px solid #030001;
-}
-
-footer {
-  text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 15px;
-  color: #aa00ff !important;
-}
-
-.footer-link {
-  color: black;
-  text-decoration: none;
-}
-
-.header-icon {
-  color: #aa00ff !important;
-}
-
-.only-link {
-  opacity: 0.6;
-}
-
-.navbar-title {
-  opacity: 0.7;
-}
-
-.content {
-  opacity: 0.7;
-}
-
-//control about the links in the sidebar
-.only-link {
-  font-weight: bold;
-  opacity: 0.7 !important;
-  width: 254px !important;
-  margin: 2px !important;
-}
-
-.only-link:hover {
-  font-weight: bold;
-  opacity: 0.7 !important;
-  width: 254px !important;
-  margin: 2px !important;
-}
-
-.only-link:focus {
-  font-weight: bold;
-  opacity: 0.7 !important;
-  width: 254px !important;
-  margin: 2px;
-}
-
-.sidebar-is-mobile .only-link {
-  font-weight: bold;
-  opacity: 0.7;
-  width: 254px !important;
-  margin: 2px;
-}
-
-.sidebar-is-mobile .only-link:hover {
-  font-weight: bold;
-  opacity: 0.7;
-  margin: 2px;
-}
-
-.sidebar-is-mobile .only-link:focus {
-  font-weight: bold;
-  opacity: 0.7;
-  width: 254px !important;
-  margin: 2px;
-}
-
-.sidebar-is-mobile .only-link:active {
-  font-weight: bold;
-  opacity: 0.7;
-  width: 254px !important;
-  margin: 2px;
+.config-btn{
+  opacity: 0.9;
 }

@@ -1,5 +1,4 @@
 
-
 $my-primary-color: (
   200: #dbdbdb,
   500: #0aa1ae,
@@ -20,106 +19,27 @@ $dark-theme: mat-light-theme($dark-primary, $dark-accent, $dark-warn);
 
 @include angular-material-color($dark-theme);
 
-mat-sidenav {
-  background-image: url('https://i.gyazo.com/8937335bd90106351f82d42012341b31.png');
-  background-size: cover;
+
+.content{
+  background: linear-gradient(to right, #d1cab4, #e2d9bf);
+  //background: linear-gradient(to right, #b5d1b4, #e2d9bf);
 }
 
-mat-expansion-panel {
-  background: #dce3e6;
-  margin: 3px;
-  opacity: 0.7;
+.datatable{
+  background-color: #e9e5da;
 }
 
-mat-expansion-panel mat-panel-title {
-  opacity: 1;
+
+*::-webkit-scrollbar {
+  width: 0.3em;
 }
 
-mat-toolbar {
-  box-shadow: 0px 0px 5px 3px rgb(173, 172, 172) !important;
-  background: #1976d2 !important;
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-app-footer {
-  height: 50px !important;
-}
-
-.mat-sidenav-content::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-  background-color: #e5e8e7;
-}
-
-.mat-sidenav-content::-webkit-scrollbar-thumb {
-  background: #1976d2;
-}
-
-footer {
-  text-align: center !important;
-  color: #eff5fc !important;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  padding-top: 15px !important;
-  background: #1976d2 !important;
-  height: 50px !important;
-}
-
-.footer-link {
-  color: rgb(236, 236, 236);
-  text-decoration: none;
-}
-
-//control about the links in the sidebar
-.only-link {
-  font-weight: bold;
-  background: rgb(216, 216, 216);
-  opacity: 0.7;
-  width: 254px !important;
-  margin: 2px;
-}
-
-.only-link:hover {
-  font-weight: bold;
-  background: rgb(204, 204, 204);
-  opacity: 0.7;
-  margin: 2px;
-}
-
-.only-link:focus {
-  font-weight: bold;
-  background: rgb(216, 216, 216);
-  opacity: 0.7;
-  width: 254px !important;
-  margin: 2px;
-}
-
-.sidebar-is-mobile .only-link {
-  font-weight: bold;
-  background: rgb(216, 216, 216) !important;
-  opacity: 0.7;
-  width: 254px !important;
-  margin: 2px;
-}
-
-.sidebar-is-mobile .only-link:hover {
-  font-weight: bold;
-  background: rgb(204, 204, 204) !important;
-  opacity: 0.7;
-  margin: 2px;
-}
-
-.sidebar-is-mobile .only-link:focus {
-  font-weight: bold;
-  background: rgb(216, 216, 216) !important;
-  opacity: 0.7;
-  width: 254px !important;
-  margin: 2px;
-}
-
-.sub-header {
-  color: #ffffff;
-}
-
-.header-icon {
-  color: #eff5fc !important;
+*::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: transparent;
 }
