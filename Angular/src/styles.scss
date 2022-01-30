@@ -3,37 +3,21 @@
 
 @include mat-core();
 
-.datatable-title{
-  font-weight: bolder !important; 
+.datatable-title {
+  font-weight: bolder !important;
   color: black !important;
 }
 
 .dark-theme {
   @import "src/assets/dashboard/styles/darkStyle.scss";
-  .message{
+  .message {
     color: black !important;
   }
 }
 
 .cool-theme {
   @import "src/assets/dashboard/styles/coolStyle.scss";
-  .message{
+  .message {
     color: white !important;
   }
-}
-
-.container-title {
-  text-transform: capitalize;
-}
-
-.navbar-title {
-  color: white !important;
-}
-
-.content {
-  min-height: calc(100vh - 122px);
-}
-
-button:focus {
-  outline: none !important;
 }

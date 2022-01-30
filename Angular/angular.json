@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "eklipse": {
+    "make-pdf": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/eklipse",
+            "outputPath": "dist/make-pdf",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "eklipse:build:production"
+              "browserTarget": "make-pdf:build:production"
             },
             "development": {
-              "browserTarget": "eklipse:build:development"
+              "browserTarget": "make-pdf:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "eklipse:build"
+            "browserTarget": "make-pdf:build"
           }
         },
         "test": {
@@ -113,7 +113,7 @@
       }
     }
   },
-  "defaultProject": "eklipse",
+  "defaultProject": "make-pdf",
   "schematics": {
     "@schematics/angular:component": {
       "skipTests": true

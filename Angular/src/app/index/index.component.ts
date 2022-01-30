@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { GenerateExcelService } from '../services/generateExcel.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import Swal from 'sweetalert2';
+import { DialogComponent } from '../dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-index',
@@ -22,7 +24,8 @@ export class IndexComponent implements OnInit {
   value: string = "";
   arrayValues: any = [];
   processing: boolean = false;
-  darkMode:boolean = false;
+  darkMode: boolean = false;
+  responsiveMode: boolean = false;
 
   spin: any;
   timeLeft: any;
@@ -32,7 +35,7 @@ export class IndexComponent implements OnInit {
   dataSource: any = new MatTableDataSource<any>(this.arrayValues);
   searchKey: any;
 
-  constructor(private excel: GenerateExcelService, private overlayContainer: OverlayContainer) { }
+  constructor(private excel: GenerateExcelService, private overlayContainer: OverlayContainer, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     if (localStorage.getItem("arrayValues") !== null) {
@@ -57,9 +60,15 @@ export class IndexComponent implements OnInit {
       this.darkMode = true;
     }
 
+    if(localStorage.getItem('responsive') === null || localStorage.getItem('responsive') === 'false'){
+      this.responsiveMode = false;
+    } else{
+      this.responsiveMode = true;
+    }
+
   }
 
-  public onSetTheme() {
+  onSetTheme() {
     if (localStorage.getItem('style') === 'cool-theme') {
       localStorage.setItem('style', 'dark-theme')
       this.overlayContainer.getContainerElement().classList.add('dark-theme');
@@ -71,6 +80,25 @@ export class IndexComponent implements OnInit {
       this.ComponentCssClass = 'cool-theme';
       this.darkMode = false;
     }
+
+  }
+
+  onSetResponsive() {
+    if (this.responsiveMode) {
+      localStorage.setItem('responsive', 'false');
+      this.responsiveMode = false;
+    } else {
+      localStorage.setItem('responsive', 'true');
+      this.responsiveMode = true;
+    }
+  }
+
+  onSeeInfo(id: number): void {
+   this.dialog.open(DialogComponent, {
+      width: '400px',
+      height: '600px',
+      data: { value: this.arrayValues.filter((element: { id: number; }) => element.id === id)[0] },
+    });
 
   }
 

@@ -11,10 +11,11 @@
         </div>
 
         <div class="right">
+            <button [matTooltip]="responsiveMode? 'Desactiva el Modo Responsivo' : 'Activa el Modo Responsivo'"
+                class="btn-icon" (click)="onSetResponsive()" mat-icon-button style="margin-left: 5px;">
+                <mat-icon>view_quilt</mat-icon></button>
             <button [matTooltip]="darkMode? 'Desactiva el Modo Oscuro' : 'Activa el Modo Oscuro'" class="btn-icon"
-                (click)="onSetTheme()" mat-icon-button style="margin-left: 5px;"><span class="material-icons">
-                    dark_mode
-                </span></button>
+                (click)="onSetTheme()" mat-icon-button style="margin-left: 5px;"><mat-icon>dark_mode</mat-icon></button>
         </div>
     </div>
 
@@ -25,20 +26,19 @@
     <div class="options" style="margin-bottom: 80px;">
         <div style="float: left;">
             <button class="config-btn" matTooltip="Generar Archivo" mat-icon-button (click)="generateExcel()"
-                style="margin-left: 5px;"><img style="height: 50px;" src="../../assets/icons/excel-icon.svg"></button>
+                style="margin-left: 5px;"><img style="height: 50px;" src="assets/icons/excel-icon.svg"></button>
 
             <button matTooltip="Limpiar Tabla" color="warn" mat-flat-button (click)="clearTable()"
-                style="margin-left: 5px; height: 50px; width: 20px !important;" class="config-btn"><span
-                    class="material-icons">clear_all</span></button>
+                style="margin-left: 5px; height: 50px; width: 20px !important;" class="config-btn"><mat-icon>clear_all</mat-icon></button>
 
-            <mat-form-field floatLabel="never" style="margin-left: 5px;">
+            <mat-form-field floatLabel="never" class="input-low-res" style="margin-left: 5px;">
                 <input autofocus [(ngModel)]="value" (keyup)="changeWithSetTime()" matInput
-                    placeholder="Entrada de información" value="Sushi">
+                    placeholder="Entrada de información">
             </mat-form-field>
         </div>
 
         <div style="float: right;">
-            <mat-form-field floatLabel="never" style="margin-left: 5px;">
+            <mat-form-field floatLabel="never" class="input-low-res" style="margin-left: 5px;">
                 <input type="text" class="input-search" matInput [(ngModel)]="searchKey" placeholder="Buscar"
                     autocomplete="off" (keyup)="applyFilter()">
                 <button class="btn-icon" mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"
@@ -49,8 +49,8 @@
 
             <button class="config-btn" matTooltip="Generar Archivo (Filtrado)" mat-icon-button
                 (click)="generateExcelFilter()" style="margin-left: 5px;"><img style="height: 50px;"
-                    src="../../assets/icons/excel-icon.svg"></button>
-        </div>
+                    src="assets/icons/excel-icon.svg"></button>
+        </div><br class="br-hd"><br class="br-hd">
 
     </div>
 
@@ -93,41 +93,50 @@
 
             <!-- Symbol Column -->
             <ng-container matColumnDef="cinco">
-                <th mat-header-cell class="datatable-title" *matHeaderCellDef> cinco </th>
-                <td mat-cell *matCellDef="let element"> {{element.cinco}} </td>
+                <th mat-header-cell class="datatable-title" [class.render-column]="responsiveMode" *matHeaderCellDef>
+                    cinco </th>
+                <td mat-cell [class.render-column]="responsiveMode" *matCellDef="let element"> {{element.cinco}} </td>
             </ng-container>
 
             <!-- Symbol Column -->
             <ng-container matColumnDef="seis">
-                <th mat-header-cell class="datatable-title" *matHeaderCellDef> seis </th>
-                <td mat-cell *matCellDef="let element"> {{element.seis}} </td>
+                <th mat-header-cell class="datatable-title" [class.render-column]="responsiveMode" *matHeaderCellDef>
+                    seis </th>
+                <td mat-cell [class.render-column]="responsiveMode" *matCellDef="let element"> {{element.seis}} </td>
             </ng-container>
 
             <!-- Symbol Column -->
             <ng-container matColumnDef="siete">
-                <th mat-header-cell class="datatable-title" *matHeaderCellDef> siete </th>
-                <td mat-cell *matCellDef="let element"> {{element.siete}} </td>
+                <th mat-header-cell class="datatable-title" [class.render-column]="responsiveMode" *matHeaderCellDef>
+                    siete </th>
+                <td mat-cell [class.render-column]="responsiveMode" *matCellDef="let element"> {{element.siete}} </td>
             </ng-container>
 
             <!-- Symbol Column -->
             <ng-container matColumnDef="ocho">
-                <th mat-header-cell class="datatable-title" *matHeaderCellDef> ocho </th>
-                <td mat-cell *matCellDef="let element"> {{element.ocho}} </td>
+                <th mat-header-cell class="datatable-title" [class.render-column]="responsiveMode" *matHeaderCellDef>
+                    ocho </th>
+                <td mat-cell [class.render-column]="responsiveMode" *matCellDef="let element"> {{element.ocho}} </td>
             </ng-container>
 
             <!-- Symbol Column -->
             <ng-container matColumnDef="nueve">
-                <th mat-header-cell class="datatable-title" *matHeaderCellDef> nueve </th>
-                <td mat-cell *matCellDef="let element"> {{element.nueve}} </td>
+                <th mat-header-cell class="datatable-title" [class.render-column]="responsiveMode" *matHeaderCellDef>
+                    nueve </th>
+                <td mat-cell [class.render-column]="responsiveMode" *matCellDef="let element"> {{element.nueve}} </td>
             </ng-container>
 
             <!-- Symbol Column -->
             <ng-container matColumnDef="acciones">
                 <th mat-header-cell class="datatable-title" *matHeaderCellDef> Acciones </th>
-                <td mat-cell *matCellDef="let element"><button class="render-info" (click)="remove(element.id)"
-                        mat-icon-button>
+                <td mat-cell *matCellDef="let element">
+                    <button class="render-info" style="display: none; float: left;" [class.render-btn]="responsiveMode" (click)="onSeeInfo(element.id)" mat-icon-button>
+                        <mat-icon>view_list</mat-icon>
+                    </button>
+                    <button class="render-info" (click)="remove(element.id)" mat-icon-button>
                         <mat-icon>delete</mat-icon>
-                    </button></td>
+                    </button>
+                </td>
 
             </ng-container>
 

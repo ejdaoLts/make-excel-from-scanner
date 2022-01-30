@@ -14,7 +14,7 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.setMenu(null)
-  mainWindow.loadFile('make-pdf/index.html')
+  mainWindow.loadFile('project/index.html')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -37,6 +37,7 @@ app.whenReady().then(() => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', function () {
+  
   if (process.platform !== 'darwin') app.quit()
 })
 

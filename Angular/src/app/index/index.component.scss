@@ -26,26 +26,42 @@ table {
 .render-column {
   display: none !important;
 }
+
+.render-btn {
+  display: block !important;
+}
 .first-column {
   padding-left: 20px !important;
 }
-
 
 .right{
   float: right;
 }
 
-
 .left{
   float: left;
 }
 
-/*
-.mat-column-catorce, .mat-column-diez, .mat-column-once,
-.mat-column-cuatro, .mat-column-cinco, .mat-column-seis,
-.mat-column-siete, .mat-column-ocho, .mat-column-nueve  {
-  border-right: 1px solid currentColor;
+.br-hd{
+  display: none;
 }
-*/
 
+@media (min-width: 0px) and (max-width: 409px) {
+  .input-low-res{
+    width: 150px;
+  }
+  .br-hd{
+    display: block;
+  }
+}
+@media (min-width: 410px) and (max-width: 509px) {
+  .input-low-res{
+    width: 100px;
+  }
+}
+@media (min-width: 510px) and (max-width: 570px) {
+  .input-low-res{
+    width: 150px;
+  }
+}
 
