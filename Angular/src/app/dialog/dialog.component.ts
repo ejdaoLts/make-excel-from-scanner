@@ -21,15 +21,15 @@ export class DialogComponent implements OnInit {
   
   ngOnInit(): void {
     let array = [
-      {title:"diez", value: this.data.value.diez},
-      {title:"once", value: this.data.value.once},
-      {title:"catorce", value: this.data.value.catorce},
-      {title:"cuatro", value: this.data.value.cuatro},
-      {title:"cinco", value: this.data.value.cinco},
-      {title:"seis", value: this.data.value.seis},
-      {title:"siete", value: this.data.value.siete},
-      {title:"ocho", value: this.data.value.ocho},
-      {title:"nueve", value: this.data.value.nueve},
+      {title:"factura", value: this.data.value.factura},
+      {title:"ingreso", value: this.data.value.ingreso},
+      {title:"entidad", value: this.data.value.entidad},
+      {title:"total_factura", value: this.data.value.total_factura},
+      {title:"fecha_facturacion", value: this.data.value.fecha_facturacion},
+      {title:"identificacion", value: this.data.value.identificacion},
+      {title:"paciente", value: this.data.value.paciente},
+      {title:"fecha_ingreso", value: this.data.value.fecha_ingreso},
+      {title:"fecha_egreso", value: this.data.value.fecha_egreso},
     ]
 
     console.log(this.data.value)

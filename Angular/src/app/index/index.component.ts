@@ -17,7 +17,7 @@ export class IndexComponent implements OnInit {
   @HostBinding('class') ComponentCssClass: any;
 
 
-  displayedColumns: string[] = ['id', 'diez', 'once', 'catorce', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'acciones'];
+  displayedColumns: string[] = ['id', 'factura', 'ingreso', 'entidad', 'total_factura', 'fecha_facturacion', 'identificacion', 'paciente', 'fecha_ingreso', 'fecha_egreso', 'acciones'];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator | any;
   @ViewChild(MatSort, { static: true }) sort: MatSort | any;
 
@@ -121,15 +121,15 @@ export class IndexComponent implements OnInit {
           let arrayFromValue = this.value.split(";");
           let array = {
             "id": this.generateId(),
-            "diez": arrayFromValue[0],
-            "once": arrayFromValue[1],
-            "catorce": arrayFromValue[2],
-            "cuatro": arrayFromValue[3],
-            "cinco": arrayFromValue[4],
-            "seis": arrayFromValue[5],
-            "siete": arrayFromValue[6],
-            "ocho": arrayFromValue[7],
-            "nueve": arrayFromValue[8],
+            "factura": arrayFromValue[0],
+            "ingreso": arrayFromValue[1],
+            "entidad": arrayFromValue[2],
+            "total_factura": arrayFromValue[3],
+            "fecha_facturacion": arrayFromValue[4],
+            "identificacion": arrayFromValue[5],
+            "paciente": arrayFromValue[6],
+            "fecha_ingreso": arrayFromValue[7],
+            "fecha_egreso": arrayFromValue[8],
           }
           this.arrayValues.unshift(array);
           this.value = "";
@@ -176,15 +176,15 @@ export class IndexComponent implements OnInit {
       let arrayWithoutId: any[] = [];
       for (let i = 0; i < this.arrayValues.length; i++) {
         array = {
-          "diez": this.arrayValues[i].diez,
-          "once": this.arrayValues[i].once,
-          "catorce": this.arrayValues[i].catorce,
-          "cuatro": this.arrayValues[i].cuatro,
-          "cinco": this.arrayValues[i].cinco,
-          "seis": this.arrayValues[i].seis,
-          "siete": this.arrayValues[i].siete,
-          "ocho": this.arrayValues[i].ocho,
-          "nueve": this.arrayValues[i].nueve,
+          "factura": this.arrayValues[i].factura,
+          "ingreso": this.arrayValues[i].ingreso,
+          "entidad": this.arrayValues[i].entidad,
+          "total_factura": this.arrayValues[i].total_factura,
+          "fecha_facturacion": this.arrayValues[i].fecha_facturacion,
+          "identificacion": this.arrayValues[i].identificacion,
+          "paciente": this.arrayValues[i].paciente,
+          "fecha_ingreso": this.arrayValues[i].fecha_ingreso,
+          "fecha_egreso": this.arrayValues[i].fecha_egreso,
         };
         arrayWithoutId.push(array);
       }
@@ -203,15 +203,15 @@ export class IndexComponent implements OnInit {
       let arrayWithoutId: any[] = [];
       for (let i = 0; i < this.dataSource.filteredData.length; i++) {
         array = {
-          "diez": this.dataSource.filteredData[i].diez,
-          "once": this.dataSource.filteredData[i].once,
-          "catorce": this.dataSource.filteredData[i].catorce,
-          "cuatro": this.dataSource.filteredData[i].cuatro,
-          "cinco": this.dataSource.filteredData[i].cinco,
-          "seis": this.dataSource.filteredData[i].seis,
-          "siete": this.dataSource.filteredData[i].siete,
-          "ocho": this.dataSource.filteredData[i].ocho,
-          "nueve": this.dataSource.filteredData[i].nueve,
+          "factura": this.dataSource.filteredData[i].factura,
+          "ingreso": this.dataSource.filteredData[i].ingreso,
+          "entidad": this.dataSource.filteredData[i].entidad,
+          "total_factura": this.dataSource.filteredData[i].total_factura,
+          "fecha_facturacion": this.dataSource.filteredData[i].fecha_facturacion,
+          "identificacion": this.dataSource.filteredData[i].identificacion,
+          "paciente": this.dataSource.filteredData[i].paciente,
+          "fecha_ingreso": this.dataSource.filteredData[i].fecha_ingreso,
+          "fecha_egreso": this.dataSource.filteredData[i].fecha_egreso,
         };
         arrayWithoutId.push(array);
       }
