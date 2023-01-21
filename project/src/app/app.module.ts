@@ -13,7 +13,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
-import { DialogModule, TableModule } from './components';
+import { ConfigModule, DialogModule, FieldsModule, TableModule } from './components';
 import { getSpanishPaginatorIntl } from './services/translate-paginator.service';
 
 @NgModule({
@@ -29,11 +29,13 @@ import { getSpanishPaginatorIntl } from './services/translate-paginator.service'
     MatTabsModule,
     MatButtonModule,
     MatInputModule,
+    FieldsModule,
     FormsModule,
     MatDividerModule,
     BrowserAnimationsModule,
     DialogModule,
     TableModule,
+    ConfigModule,
   ],
   providers: [{ provide: MatPaginatorIntl, useValue: getSpanishPaginatorIntl() }],
   bootstrap: [AppComponent],

@@ -3,8 +3,19 @@
 @import 'themes/dark-style';
 @import 'themes/default-style';
 
+@import 'grids';
 @import 'loader';
 
 body {
   background-color: var(--layout-container);
+}
+
+.overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bolder {
+  font-weight: bolder;
 }
