@@ -2,7 +2,7 @@ import { Component, HostBinding, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort /*, MatSortable*/ } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { GenerateExcelService } from '../services/generateExcel.service';
+import { GenerateExcelService } from '../services/generate-excel.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import Swal from 'sweetalert2';
 import { DialogComponent } from '../dialog/dialog.component';

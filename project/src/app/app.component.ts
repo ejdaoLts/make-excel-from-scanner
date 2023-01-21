@@ -1,25 +1,30 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { Title } from '@angular/platform-browser';
-import { MediaMatcher } from '@angular/cdk/layout';
-import {Links, Accordions} from "./navigation"
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-
-
-  constructor() {
-
-
-  }
+  constructor() {}
 
   ngOnInit() {
-
+    this._setTheme();
   }
 
+  public toggleTheme(): void {
+    document.getElementsByTagName('body')[0].classList.toggle('dark-theme');
+
+    if (document.getElementsByTagName('body')[0].classList.contains('dark-theme')) {
+      localStorage.setItem('dark-theme', 'true');
+    } else {
+      localStorage.removeItem('dark-theme');
+    }
+  }
+
+  private _setTheme(): void {
+    if (localStorage.getItem('dark-theme') !== null) {
+      document.getElementsByTagName('body')[0].classList.add('dark-theme');
+    }
+  }
 }

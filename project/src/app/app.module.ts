@@ -1,25 +1,41 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-//import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './dependencies/shared/shared.module';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IndexComponent } from './index/index.component';
-
-const appRoutes: Routes = [];
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { DialogModule, TableModule } from './components';
+import { getSpanishPaginatorIntl } from './services/translate-paginator.service';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent],
+  declarations: [AppComponent],
   imports: [
-    AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
-    SharedModule,
+    MatTooltipModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatDialogModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatInputModule,
+    FormsModule,
+    MatDividerModule,
     BrowserAnimationsModule,
+    DialogModule,
+    TableModule,
   ],
-  providers: [
-    /*{ provide: LocationStrategy, useClass: HashLocationStrategy }*/
-  ],
+  providers: [{ provide: MatPaginatorIntl, useValue: getSpanishPaginatorIntl() }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

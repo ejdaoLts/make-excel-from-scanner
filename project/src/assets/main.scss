@@ -1,0 +1,10 @@
+@import 'material/material';
+
+@import 'themes/dark-style';
+@import 'themes/default-style';
+
+@import 'loader';
+
+body {
+  background-color: var(--layout-container);
+}
