@@ -1,6 +1,6 @@
 {
-  "name": "make-pdf",
-  "version": "1.0.0",
+  "name": "make-excel-from-scanner",
+  "version": "2.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
