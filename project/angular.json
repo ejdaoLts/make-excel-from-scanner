@@ -5,18 +5,19 @@
   },
   "version": 1,
   "newProjectRoot": "projects",
+  "schematics": {
+    "@schematics/angular:application": {
+      "style": "scss",
+      "strict": true
+    },
+    "@schematics/angular:component": {
+      "style": "scss",
+      "skipTests": true
+    }
+  },
   "projects": {
-    "make-pdf": {
+    "generate-excel-from-scanner": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "style": "scss",
-          "strict": true
-        },
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -24,18 +25,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/make-pdf",
+            "allowedCommonJsDependencies": ["file-saver", "xlsx"],
+            "outputPath": "dist/generate-excel-from-scanner",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -75,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "make-pdf:build:production"
+              "browserTarget": "generate-excel-from-scanner:build:production"
             },
             "development": {
-              "browserTarget": "make-pdf:build:development"
+              "browserTarget": "generate-excel-from-scanner:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "make-pdf:build"
+            "browserTarget": "generate-excel-from-scanner:build"
           }
         },
         "test": {
@@ -96,13 +93,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
+            "codeCoverage": true,
             "scripts": []
           }
         },
@@ -113,10 +106,5 @@
       }
     }
   },
-  "defaultProject": "make-pdf",
-  "schematics": {
-    "@schematics/angular:component": {
-      "skipTests": true
-    }
-  }
+  "defaultProject": "generate-excel-from-scanner"
 }

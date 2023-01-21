@@ -11,15 +11,15 @@ import {Links, Accordions} from "./navigation"
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  
+
 
   constructor() {
-  
+
 
   }
 
   ngOnInit() {
-    
+
   }
 
 }

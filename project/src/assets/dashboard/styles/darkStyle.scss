@@ -29,21 +29,21 @@ $dark-theme: mat-light-theme($dark-primary, $dark-accent, $dark-warn);
 
 @include angular-material-color($dark-theme);
 
-
-.content{
-  
+.content {
   background: linear-gradient(to right, #99968b, #9c998d);
   //background: linear-gradient(to right, #b5d1b4, #e2d9bf);
 }
 
-.datatable{
+.datatable {
   background-color: #b8b5ae;
 }
 
-.btn-icon, .container-title, .input-search{
+.btn-icon,
+.container-title,
+.input-search {
   color: rgb(37, 37, 37);
 }
 
-.config-btn{
+.config-btn {
   opacity: 0.9;
 }
