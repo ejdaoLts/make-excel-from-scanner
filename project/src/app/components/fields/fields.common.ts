@@ -1,1 +1,1 @@
-export const DEFAULT_APPEARANCE_FORM: any = 'standard';
+export const DEFAULT_APPEARANCE_FORM: any = 'legacy';

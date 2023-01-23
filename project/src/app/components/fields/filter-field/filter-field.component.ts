@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, FormControl, NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
+import { DEFAULT_APPEARANCE_FORM } from '../fields.common';
 
 @Component({
   selector: 'gcm-filter-field',
@@ -21,9 +22,7 @@ export class GcmFilterField implements OnDestroy, ControlValueAccessor {
 
   @Input() style = '';
 
-  @Input() placeholder = 'Buscar';
-
-  @Input() appearance: 'outline' | 'fill' | 'standard' | 'legacy' = 'standard';
+  @Input() appearance: 'outline' | 'fill' | 'standard' | 'legacy' = DEFAULT_APPEARANCE_FORM;
 
   @Input() color: 'primary' | 'accent' | 'warn' = 'primary';
 

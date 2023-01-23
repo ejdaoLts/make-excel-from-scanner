@@ -1,13 +1,17 @@
-@import 'material/material';
+@import 'material/main';
+@import 'icons/main';
+@import 'fonts/main';
 
 @import 'themes/dark-style';
 @import 'themes/default-style';
 
 @import 'grids';
 @import 'loader';
+@import 'table';
 
 body {
   background-color: var(--layout-container);
+  color: var(--dark-color-700);
 }
 
 .overflow-ellipsis {
@@ -18,4 +22,25 @@ body {
 
 .bolder {
   font-weight: bolder;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+a,
+a:hover {
+  text-decoration: none;
+  outline: 0;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+button {
+  cursor: pointer;
+  border: none;
+}
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 }
