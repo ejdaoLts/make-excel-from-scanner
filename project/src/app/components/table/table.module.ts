@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
 import { FieldsModule } from '../fields/fields.module';
+import { GcmModalModule } from '../modal';
 
 @NgModule({
   declarations: [TableComponent],
@@ -20,6 +21,7 @@ import { FieldsModule } from '../fields/fields.module';
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
+    GcmModalModule,
     MatDividerModule,
     FieldsModule,
   ],

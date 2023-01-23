@@ -15,6 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ConfigModule, DialogModule, FieldsModule, TableModule } from './components';
 import { getSpanishPaginatorIntl } from './services/translate-paginator.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { GcmModalModule } from './components/modal';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +28,8 @@ import { getSpanishPaginatorIntl } from './services/translate-paginator.service'
     MatTableModule,
     MatSortModule,
     MatDialogModule,
+    MatSnackBarModule,
+    GcmModalModule,
     MatTabsModule,
     MatButtonModule,
     MatInputModule,

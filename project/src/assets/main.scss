@@ -8,6 +8,7 @@
 @import 'grids';
 @import 'loader';
 @import 'table';
+@import 'modal';
 
 body {
   background-color: var(--layout-container);
@@ -43,4 +44,8 @@ button {
 }
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+.cdk-global-scrollblock {
+  overflow: auto !important;
 }

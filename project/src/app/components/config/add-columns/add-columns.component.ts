@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 import { STORAGE_KEYS } from 'src/app/app.constants';
+import { GcmToastService } from '../../toast';
 
 @Component({
   selector: 'app-add-columns',
@@ -20,7 +21,7 @@ export class AddColumnsComponent implements OnInit, OnDestroy {
 
   public hasSuffixButton = false;
 
-  constructor() {
+  constructor(private _toast: GcmToastService) {
     this.newColumn.valueChanges
       .pipe(takeUntil(this._unsubscribe$), distinctUntilChanged(), debounceTime(1000))
       .subscribe(column => {
@@ -48,6 +49,8 @@ export class AddColumnsComponent implements OnInit, OnDestroy {
 
   public onRegisterColumns(): void {
     localStorage.setItem(STORAGE_KEYS.columns, JSON.stringify(this._arrayWithColumns));
+
+    this._toast.simpleNotification('Información almacenada correctamente');
   }
 
   get arrayWithColumns(): string[] {
