@@ -1,0 +1,19 @@
+.excel-icon,
+.pdf-icon {
+  width: 32px;
+}
+.dark-theme {
+  .excel-icon,
+  .pdf-icon {
+    filter: invert(100%);
+  }
+  .gcm-table-header {
+    background-color: var(--light-background-color-100) !important;
+  }
+}
+.excel-icon {
+  content: url('export-excel.png');
+}
+.pdf-icon {
+  content: url('export-pdf.png');
+}

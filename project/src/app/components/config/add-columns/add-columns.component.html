@@ -1,0 +1,30 @@
+<div class="flex-320">
+  <mat-slide-toggle (change)="hasSuffixButton = $event.checked"> Registro Manual </mat-slide-toggle>
+</div>
+
+<div class="flex-320">
+  <div style="margin-top: 10px; min-width: 200px; max-width: 200px">
+    <gcm-text-field
+      [formControl]="newColumn"
+      [hasSuffixButton]="hasSuffixButton"
+      suffixTooltip="Agregar columna"
+      (clickSuffixButton)="clickOnaddColumn($event)"
+    >
+      Agregar columna a tabla
+    </gcm-text-field>
+  </div>
+
+  <button mat-button style="margin-left: 10px" color="accent" (click)="onRegisterColumns()">
+    <b>REGISTRAR</b>
+  </button>
+</div>
+
+<div class="flex-320" *ngFor="let column of arrayWithColumns; let i = index">
+  <span class="overflow-ellipsis" style="max-width: 250px" [title]="column">
+    <b>columna {{ i + 1 }}:</b>
+    {{ column }}
+  </span>
+  <div>
+    <button mat-icon-button (click)="onDelete(i)"><mat-icon>delete</mat-icon></button>
+  </div>
+</div>

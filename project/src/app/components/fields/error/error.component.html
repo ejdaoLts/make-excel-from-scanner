@@ -1,0 +1,35 @@
+<div class="mat-custom-error" #error>
+  <div *ngIf="control !== undefined && isDateField && control.valid">
+    {{ 'badDateMsg' | errorMsg }}
+  </div>
+  <div *ngIf="control !== undefined && control.errors | errorEquals: required">
+    {{ 'requiredMsg' | errorMsg }}
+  </div>
+  <div *ngIf="control !== undefined && control.errors | errorEquals: pattern">
+    {{
+      isNumberField ? 'El campo solo debe contener caracteres numericos' : ('patternMsg' | errorMsg)
+    }}
+  </div>
+  <div *ngIf="control !== undefined && control.errors | errorEquals: maxlength">
+    {{ 'maxLengthMsg' | errorMsg }}
+  </div>
+  <div *ngIf="control !== undefined && control.errors | errorEquals: max">
+    {{ 'maxMsg' | errorMsg }}
+  </div>
+  <div *ngIf="control !== undefined && control.errors | errorEquals: minlength">
+    {{ 'minLengthMsg' | errorMsg }}
+  </div>
+  <div *ngIf="control !== undefined && control.errors | errorEquals: min">
+    {{ 'minMsg' | errorMsg }}
+  </div>
+  <div *ngIf="control !== undefined && control.errors | errorEquals: email">
+    {{ 'EmailMsg' | errorMsg }}
+  </div>
+  <div *ngIf="control === undefined">
+    {{
+      start.hasError('required') && end.hasError('required')
+        ? ('requiredMsg' | errorMsg)
+        : ('DateRangeMsg' | errorMsg)
+    }}
+  </div>
+</div>

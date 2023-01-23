@@ -1,0 +1,25 @@
+<div class="mat-form-container {{ class }}" [style]="style">
+  <mat-form-field floatLabel="never" [color]="color" [appearance]="appearance">
+    <mat-label>
+      <ng-content></ng-content>
+    </mat-label>
+    <input
+      matInput
+      autocomplete="off"
+      [value]="value"
+      (keyup)="onChange($event)"
+      (change)="onChange($event)"
+      [disabled]="disabled"
+      (focusout)="onFocusout()"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      *ngIf="control.value"
+      type="button"
+      (click)="onClearControl()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>

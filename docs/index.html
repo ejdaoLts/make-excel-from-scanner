@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Generate Excel From Scanner</title>
+    <base href="./" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1f1f1f" />
+    <link
+      rel="icon"
+      href="assets/icons/excel-icon.svg"
+      sizes="32x32"
+      type="image/png"
+    />
+    <style>
+      :root {
+        --box-shadow-default: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        --box-shadow-z4-default: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+          0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        --border-color-default: none;
+        --primary-100: rgb(120, 203, 211);
+        --primary-500: rgb(10, 161, 174);
+        --primary-700: rgb(8, 119, 129);
+        --primary-constrant-100: rgb(140, 238, 247);
+        --primary-constrant-500: rgb(14, 187, 202);
+        --primary-constrant-700: rgb(15, 163, 177);
+        --primary-opacity-100: rgb(120, 203, 211, 0.3);
+        --primary-opacity-500: rgb(10, 161, 174, 0.3);
+        --primary-opacity-700: rgb(8, 119, 129, 0.3);
+        --accent-100: rgb(30, 233, 148);
+        --accent-500: rgb(24, 182, 116);
+        --accent-700: rgb(29, 139, 110);
+        --accent-opacity-100: rgb(30, 233, 148, 0.3);
+        --accent-opacity-500: rgb(24, 182, 116, 0.3);
+        --accent-opacity-700: rgb(29, 139, 110, 0.3);
+        --accent-constrant-100: rgb(177, 243, 214);
+        --accent-constrant-500: rgb(70, 221, 158);
+        --accent-constrant-700: rgb(65, 185, 135);
+        --warn-100: rgb(255, 55, 55);
+        --warn-500: rgb(255, 0, 0);
+        --warn-700: rgb(168, 0, 0);
+        --warn-opacity-100: rgb(255, 55, 55, 0.3);
+        --warn-opacity-500: rgb(255, 0, 0, 0.3);
+        --warn-opacity-700: rgb(168, 0, 0, 0.3);
+        --warn-constrant-100: rgb(254, 191, 191);
+        --warn-constrant-500: rgb(255, 128, 128);
+        --warn-constrant-700: rgb(191, 96, 96);
+        --dark-color-50: rgba(0, 0, 0, 0.6);
+        --dark-color-100: rgba(0, 0, 0, 0.12);
+        --dark-color-200: rgba(0, 0, 0, 0.26);
+        --dark-color-250: rgba(0, 0, 0, 0.42);
+        --dark-color-300: rgba(0, 0, 0, 0.54);
+        --dark-color-500: rgba(0, 0, 0, 0.87);
+        --dark-color-700: rgb(0, 0, 0);
+        --dark-background-color-10: rgba(0, 0, 0, 0.04);
+        --dark-background-color-50: rgba(0, 0, 0, 0.6);
+        --dark-background-color-100: rgba(0, 0, 0, 0.12);
+        --dark-background-color-200: rgba(0, 0, 0, 0.26);
+        --dark-background-color-250: rgba(0, 0, 0, 0.42);
+        --dark-background-color-300: rgba(0, 0, 0, 0.54);
+        --dark-background-color-500: rgba(0, 0, 0, 0.87);
+        --dark-background-color-700: rgb(0, 0, 0);
+        --light-color-700: #fff;
+        --light-background-color-50: rgba(255, 255, 255, 0.6);
+        --light-background-color-100: #fff;
+        --light-background-color-150: #f0f0f0;
+        --light-background-color-200: #eee;
+        --light-background-color-300: #e0e0e0;
+        --light-background-color-700: #bdbdbd;
+        --scrollbar-thumb-hover-color-500: rgba(192, 192, 192, 0.862);
+        --hover-scrollbar-thumb-color-500: rgba(192, 192, 192, 0.562);
+        --scrollbar-thumb-background-color-500: #f1f4f6;
+        --header-background-color: rgb(10, 161, 174);
+        --header-container-box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%),
+          0 0.9375rem 1.40625rem rgb(4 9 20 / 3%),
+          0 0.25rem 0.53125rem rgb(4 9 20 / 5%),
+          0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+        --footer-background-color: rgb(10, 161, 174);
+        --sidebar-after-background-color: rgba(255, 255, 255, 0.95);
+        --sidebar-background-color: rgb(255, 255, 255);
+        --sidebar-branding-color: var(--primary-500);
+        --sidebar-container-border-right: #d6d6d6;
+        --sidenav-scrollbar-thumb-hover-color: var(
+          --scrollbar-thumb-hover-color-500
+        );
+        --sidenav-hover-scrollbar-thumb-color: var(
+          --hover-scrollbar-thumb-color-500
+        );
+        --sidenav-link-active-background-color: rgba(218, 218, 218, 0.15);
+        --sidenav-link-hover-background-color: rgba(226, 226, 226, 0.46);
+        --sidenav-link-icon-color: rgb(50, 50, 50);
+        --layout-container: rgb(241, 244, 246);
+        --divider-border-top-light-color: rgba(214, 214, 214, 0.12);
+        --divider-border-top-dark-color: rgba(0, 0, 0, 0.12);
+        --table-selectable-row-hover: rgba(204, 204, 204, 0.4);
+        --table-not-selectable-row: #f5b5c0c4;
+        --table-not-selectable-row-hover: #f5aab7ea;
+        --overlay-backdrop-background-color: rgba(0, 0, 0, 0.32);
+        --loader-overlay-backdrop-background-color: rgba(255, 255, 255, 0.3);
+        --loader-double-bounce1: #fcc02e;
+        --loader-double-bounce2: #03a9f4;
+        --slide-toggle-thumb-background-color: #fff;
+        --slide-toggle-bar-background-color: rgba(0, 0, 0, 0.38);
+        --dialog-container-box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+          0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+          0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+        --dialog-container-background-color: #fff;
+        --dialog-container-border-color: transparent;
+        --snackbar-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+          0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+        --snackbar-border-color: transparent;
+        --snackbar-color: #fff;
+        --snackbar-action-color: var(--accent-500);
+        --snackbar-background-color: #323232;
+        --snackbar-success-color: #000;
+        --snackbar-success-action-color: var(--warn-500);
+        --snackbar-success-background-color: var(--accent-500);
+        --snackbar-danger-color: #fff;
+        --snackbar-danger-action-color: var(--accent-500);
+        --snackbar-danger-background-color: var(--warn-500);
+        --select-panel-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+          0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        --select-panel-border-color: transparent;
+        --header-table-background-color: rgba(25, 42, 86, 1);
+      }
+      body {
+        background-color: var(--layout-container);
+        color: var(--dark-color-700);
+        margin: 0;
+      }
+      * {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="styles.edd8b33ac0240e1c.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="styles.edd8b33ac0240e1c.css"
+    /></noscript>
+  </head>
+
+  <body>
+    <app-root></app-root>
+    <script src="runtime.6a4f816adb780a7d.js" type="module"></script>
+    <script src="polyfills.e4b0c131169f7d14.js" type="module"></script>
+    <script src="main.bc92ef747d02c4d3.js" type="module"></script>
+  </body>
+</html>

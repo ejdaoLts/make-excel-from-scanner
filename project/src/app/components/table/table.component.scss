@@ -1,0 +1,25 @@
+.options {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.top-fields {
+  margin-left: 10px;
+  &.filter {
+    width: 200px;
+  }
+}
+
+.custom-width-details {
+  border: 1px solid var(--dark-color-100);
+  & .container {
+    width: 600px;
+  }
+  & .title {
+    width: 200px;
+  }
+  & .content {
+    width: 400;
+  }
+}

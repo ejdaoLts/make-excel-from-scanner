@@ -1,0 +1,48 @@
+@import 'material/main';
+@import 'icons/main';
+@import 'fonts/main';
+
+@import 'themes/dark-style';
+@import 'themes/default-style';
+
+@import 'grids';
+@import 'loader';
+@import 'table';
+@import 'modal';
+
+body {
+  background-color: var(--layout-container);
+  color: var(--dark-color-700);
+  margin: 0;
+}
+
+.overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  outline: 0;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+button {
+  cursor: pointer;
+  border: none;
+}
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+.cdk-global-scrollblock {
+  overflow: auto !important;
+}

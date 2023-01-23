@@ -1,0 +1,41 @@
+<div class="mat-form-container {{ class }}" [style]="style">
+  <mat-form-field
+    [class.mat-form-field-invalid]="isInvalid || (isSubmitted && control.invalid)"
+    floatLabel="never"
+    [appearance]="appearance"
+    [color]="color"
+  >
+    <mat-label>
+      <ng-content></ng-content>{{ ' ' }}<span class="gcm-field__danger-x" *ngIf="required">*</span>
+    </mat-label>
+    <input
+      matInput
+      [autocomplete]="autocomplete"
+      [value]="value"
+      (keyup)="onChange($event)"
+      (change)="onChange($event)"
+      [disabled]="disabled"
+      (focusout)="onFocusout()"
+    />
+    <button
+      mat-icon-button
+      type="button"
+      matSuffix
+      *ngIf="control.value && hasClearButton"
+      (click)="onClearControl()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      type="button"
+      matSuffix
+      [matTooltip]="suffixTooltip"
+      *ngIf="control.value && hasSuffixButton"
+      (click)="clickSuffixButton.emit(control.value)"
+    >
+      <mat-icon>{{ suffixIcon }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <gcm-error [control]="control" *ngIf="isInvalid || (isSubmitted && control.invalid)"></gcm-error>
+</div>

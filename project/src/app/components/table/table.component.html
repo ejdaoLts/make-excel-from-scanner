@@ -1,0 +1,104 @@
+<div class="content" style="padding: 20px; min-height: calc(100vh - 130px)">
+  <!-- start content -->
+
+  <div class="options">
+    <button matTooltip="Generar Archivo" mat-icon-button (click)="generateExcel()">
+      <img class="excel-icon" />
+    </button>
+
+    <button matTooltip="Limpiar Tabla" mat-icon-button (click)="clearTable()">
+      <mat-icon>delete</mat-icon>
+    </button>
+
+    <button matTooltip="Actualizar tabla" mat-icon-button (click)="renderTable()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+
+    <div class="top-fields">
+      <gcm-text-field [formControl]="dataInput">Entrada de información</gcm-text-field>
+    </div>
+
+    <div class="top-fields filter">
+      <gcm-filter-field [formControl]="searchKey">Filtrar registros</gcm-filter-field>
+    </div>
+  </div>
+
+  <mat-paginator
+    class="datatable"
+    [length]="dataSource.length"
+    [pageSizeOptions]="[10, 20, 30]"
+    showFirstLastButtons
+    aria-label="Select page"
+  >
+  </mat-paginator>
+
+  <div class="gcm-table__container" *ngIf="!refactor">
+    <table mat-table [dataSource]="dataSource" class="datatable" multiTemplateDataRows matSort>
+      <!-- Position Column -->
+      <div *ngFor="let column of displayedColumnsSliced; let i = index">
+        <ng-container *ngIf="column !== 'actions'" [matColumnDef]="column">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            {{ displayedAliasSliced[i] }}
+          </th>
+          <td
+            [class]="displayedCssClasses[i]"
+            mat-cell
+            *matCellDef="let element"
+            (click)="
+              expandedElement = expandedElement === element ? null : element;
+              $event.stopPropagation()
+            "
+          >
+            {{ element[column] }}
+          </td>
+        </ng-container>
+
+        <ng-container *ngIf="column === 'actions'" [matColumnDef]="column">
+          <th class="col-t-10" mat-header-cell *matHeaderCellDef>
+            {{ displayedAliasSliced[i] }}
+          </th>
+          <td class="col-t-10" mat-cell *matCellDef="let element">
+            <button class="render-info" (click)="remove(element)" mat-icon-button>
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+      </div>
+
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+          <div [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            <!---->
+            <!---->
+            <!---->
+            <div *ngFor="let i of displayedColumns; let ix = index">
+              <div
+                class="row custom-width-details container"
+                *ngIf="['expand', 'actions', 'Acciones'].indexOf(i) < 0"
+              >
+                <div class="col-t-6 custom-width-details title" [title]="displayedAlias[ix]">
+                  {{ displayedAlias[ix] }}
+                </div>
+                <div class="col-t-6 custom-width-details content" [title]="element[i]">
+                  {{ element[i] }}
+                </div>
+              </div>
+            </div>
+            <!---->
+            <!---->
+            <!---->
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsSliced; sticky: true"></tr>
+      <tr selectable mat-row *matRowDef="let row; columns: displayedColumnsSliced"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: ['expandedDetail']"
+        class="gcm-table__detail-row"
+      ></tr>
+    </table>
+  </div>
+  <!-- end content -->
+</div>

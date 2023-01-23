@@ -1,0 +1,67 @@
+.dark-theme {
+  --border-color-default: #5f5f5f;
+  --box-shadow-z4-default: none;
+  --box-shadow-default: none;
+
+  --dark-color-50: rgba(255, 255, 255, 0.6);
+  --dark-color-100: rgba(255, 255, 255, 0.12);
+  --dark-color-200: rgba(255, 255, 255, 0.26);
+  --dark-color-250: rgba(255, 255, 255, 0.42);
+  --dark-color-300: rgba(255, 255, 255, 0.54);
+  --dark-color-500: rgba(255, 255, 255, 0.87);
+  --dark-color-700: rgb(255, 255, 255);
+  --dark-background-color-10: rgba(255, 255, 255, 0.04);
+  --dark-background-color-50: rgba(255, 255, 255, 0.6);
+  --dark-background-color-100: rgba(255, 255, 255, 0.12);
+  --dark-background-color-200: rgba(255, 255, 255, 0.26);
+  --dark-background-color-250: rgba(255, 255, 255, 0.42);
+  --dark-background-color-300: rgba(255, 255, 255, 0.54);
+  --dark-background-color-500: rgba(255, 255, 255, 0.87);
+  --dark-background-color-700: rgb(255, 255, 255);
+
+  --light-color-700: #000;
+  --light-background-color-50: rgba(0, 0, 0, 0.6);
+  --light-background-color-100: rgb(42, 49, 66);
+
+  --header-background-color: rgb(54, 57, 76);
+  --header-container-box-shadow: none;
+
+  --footer-background-color: rgb(54, 57, 76);
+
+  --sidebar-after-background-color: rgba(42, 49, 66, 0.95);
+  --sidebar-background-color: rgb(42, 49, 66);
+  --sidebar-container-border-right: #5f5f5f;
+
+  --sidenav-scrollbar-thumb-hover-color: rgba(192, 192, 192, 0.862);
+  --sidenav-hover-scrollbar-thumb-color: rgba(192, 192, 192, 0.562);
+  --scrollbar-thumb-background-color-500: #333947af;
+  --sidenav-link-active-background-color: rgba(218, 218, 218, 0.15);
+  --sidenav-link-hover-background-color: rgba(226, 226, 226, 0.46);
+  --sidenav-link-icon-color: rgb(50, 50, 50);
+  --sidenav-link-icon-color: rgb(218, 218, 218);
+
+  --layout-container: rgb(37, 39, 53);
+
+  --divider-border-top-light-color: rgba(214, 214, 214, 0.12);
+  --divider-border-top-dark-color: #5f5f5f;
+
+  --table-selectable-row-hover: rgba(124, 124, 124, 0.4);
+  --table-not-selectable-row: #c45366c4;
+  --table-not-selectable-row-hover: #cc3c54ea;
+
+  --overlay-backdrop-background-color: rgba(73, 73, 73, 0.32);
+
+  --loader-overlay-backdrop-background-color: rgba(73, 73, 73, 0.3);
+
+  --slide-toggle-bar-background-color: rgba(255, 255, 255, 0.38);
+
+  --dialog-container-box-shadow: var(--box-shadow-default);
+  --dialog-container-background-color: #fff;
+  --dialog-container-border-color: var(--border-color-default);
+
+  --snackbar-box-shadow: var(--box-shadow-default);
+  --snackbar-border-color: var(--border-color-default);
+
+  --select-panel-box-shadow: var(--box-shadow-default);
+  --select-panel-border-color: var(--border-color-default);
+}

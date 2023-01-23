@@ -1,0 +1,27 @@
+<div>
+  <div class="gcm-modal__top-container" *ngIf="data.hasTopCloseButton">
+    <button mat-icon-button (click)="onClose()"><mat-icon>close</mat-icon></button>
+  </div>
+  <h1 *ngIf="data.title !== ''" class="gcm-modal__title">{{ data.title }}</h1>
+  <p class="gcm-modal__content">{{ data.content }}</p>
+  <div class="gcm-modal__buttons {{ isAlert ? 'gcm-modal-one' : 'gcm-modal-two' }}">
+    <button mat-button *ngIf="!isAlert" color="accent" (click)="onConfirm()">
+      {{ confirmButton }}
+    </button>
+
+    <button mat-button *ngIf="!isAlert" color="warn" (click)="onClose()" cdkFocusInitial>
+      {{ deniedButton }}
+    </button>
+
+    <button
+      mat-button
+      *ngIf="isAlert"
+      color="accent"
+      (click)="onClose()"
+      style="float: right"
+      cdkFocusInitial
+    >
+      {{ okButton }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="app-container">
+  <div class="header">
+    <button mat-icon-button (click)="toggleTheme()"><mat-icon>dark_mode</mat-icon></button>
+  </div>
+
+  <mat-tab-group
+    mat-stretch-tabs="false"
+    color="primary"
+    mat-align-tabs="start"
+    animationDuration="0ms"
+  >
+    <mat-tab label="Tabla"> <app-table></app-table> </mat-tab>
+    <mat-tab label="Configuración">
+      <app-config></app-config>
+    </mat-tab>
+  </mat-tab-group>
+</div>
