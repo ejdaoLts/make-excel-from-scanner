@@ -21,12 +21,11 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@eklipse/utilities": "^5.0.0",
     "@ng-bootstrap/ng-bootstrap": "^11.0.0",
-    "file-saver": "^2.0.5",
     "rxjs": "~7.4.0",
     "sweetalert2": "^11.3.3",
     "tslib": "^2.3.0",
-    "xlsx": "^0.17.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
