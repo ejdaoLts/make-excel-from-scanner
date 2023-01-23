@@ -13,6 +13,7 @@
 body {
   background-color: var(--layout-container);
   color: var(--dark-color-700);
+  margin: 0;
 }
 
 .overflow-ellipsis {
@@ -25,10 +26,6 @@ body {
   font-weight: bolder;
 }
 
-body {
-  margin: 0;
-  overflow: hidden;
-}
 a,
 a:hover {
   text-decoration: none;

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 import { STORAGE_KEYS } from 'src/app/app.constants';
@@ -10,7 +10,7 @@ import { GcmToastService } from '../../toast';
   styleUrls: ['./add-columns.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AddColumnsComponent implements OnInit, OnDestroy {
+export class AddColumnsComponent implements OnDestroy {
   private _unsubscribe$ = new Subject<void>();
 
   public newColumn = new FormControl(null);
@@ -27,14 +27,14 @@ export class AddColumnsComponent implements OnInit, OnDestroy {
       .subscribe(column => {
         if (!this.hasSuffixButton) {
           if (column) {
-            this._arrayWithColumns.push(column);
-            this.newColumn.setValue(null, { emitEvent: false });
+            if (this._arrayWithColumns.indexOf(column) < 0) {
+              this._arrayWithColumns.push(column);
+              this.newColumn.setValue(null, { emitEvent: false });
+            }
           }
         }
       });
   }
-
-  public ngOnInit(): void {}
 
   public onDelete(index: number): void {
     this._arrayWithColumns = this._arrayWithColumns.filter((_, i) => i !== index);
@@ -42,8 +42,10 @@ export class AddColumnsComponent implements OnInit, OnDestroy {
 
   public clickOnaddColumn(column: string): void {
     if (this.hasSuffixButton) {
-      this._arrayWithColumns.push(column);
-      this.newColumn.setValue(null);
+      if (this._arrayWithColumns.indexOf(column) < 0) {
+        this._arrayWithColumns.push(column);
+        this.newColumn.setValue(null);
+      }
     }
   }
 

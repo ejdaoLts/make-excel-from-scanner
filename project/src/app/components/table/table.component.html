@@ -1,4 +1,4 @@
-<div class="content" style="padding: 20px; min-height: calc(100vh)">
+<div class="content" style="padding: 20px; min-height: calc(100vh - 130px)">
   <!-- start content -->
 
   <div class="options">
@@ -74,7 +74,7 @@
             <div *ngFor="let i of displayedColumns; let ix = index">
               <div
                 class="row custom-width-details container"
-                *ngIf="['expand', 'actions'].indexOf(i) < 0"
+                *ngIf="['expand', 'actions', 'Acciones'].indexOf(i) < 0"
               >
                 <div class="col-t-6 custom-width-details title" [title]="displayedAlias[ix]">
                   {{ displayedAlias[ix] }}
