@@ -129,7 +129,7 @@ export class TableComponent implements OnInit, OnDestroy {
     this.refactor = true;
 
     const displayedColumns = JSON.parse(localStorage.getItem(STORAGE_KEYS.columns)!);
-    const slicedAt = displayedColumns.lenght;
+    const slicedAt = displayedColumns.length <= 4 ? displayedColumns.length : 4;
 
     this.displayedColumnsSliced = displayedColumns.slice(0, slicedAt);
 

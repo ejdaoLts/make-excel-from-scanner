@@ -71,7 +71,7 @@
             <!---->
             <!---->
             <!---->
-            <div *ngFor="let i of displayedColumns; let ix = index" [hidden]="!ix">
+            <div *ngFor="let i of displayedColumns; let ix = index">
               <div
                 class="row custom-width-details container"
                 *ngIf="['expand', 'actions'].indexOf(i) < 0"
